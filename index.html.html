@@ -1,0 +1,1099 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Emad Hamdy | Portfolio</title>
+
+    <style>
+      /* =========================
+           RESET
+        ========================== */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      html {
+        scroll-padding-top: 90px;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #080d18;
+        color: white;
+        overflow-x: hidden;
+      }
+
+      /* =========================
+           NAVBAR
+        ========================== */
+
+      .navbar {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 90%;
+        max-width: 1100px;
+
+        padding: 15px 25px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        background: rgba(8, 13, 24, 0.75);
+        backdrop-filter: blur(15px);
+
+        border: 1px solid rgba(0, 174, 255, 0.2);
+        border-radius: 50px;
+
+        z-index: 9999;
+
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+
+        animation: navbarDown 1s ease;
+      }
+
+      .logo {
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: #00aeff;
+      }
+
+      .logo span {
+        color: white;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 8px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        position: relative;
+
+        text-decoration: none;
+        color: #aaa;
+
+        padding: 10px 18px;
+
+        border-radius: 30px;
+
+        font-size: 14px;
+        font-weight: bold;
+
+        transition: 0.4s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: white;
+        background: rgba(0, 174, 255, 0.15);
+
+        box-shadow: 0 0 20px rgba(0, 174, 255, 0.15);
+      }
+
+      .nav-links a::after {
+        content: "";
+
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+
+        width: 0;
+        height: 2px;
+
+        background: #00aeff;
+
+        transform: translateX(-50%);
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover::after,
+      .nav-links a.active::after {
+        width: 20px;
+      }
+
+      /* =========================
+           HOME
+        ========================== */
+
+      #home {
+        min-height: 100vh;
+
+        display: flex;
+        align-items: center;
+
+        position: relative;
+        top: 70px;
+
+        overflow: hidden;
+
+        background:
+          linear-gradient(
+            90deg,
+            rgba(3, 8, 18, 0.92) 0%,
+            rgba(3, 8, 18, 0.75) 40%,
+            rgba(3, 8, 18, 0.35) 100%
+          ),
+          url("1.png")
+            center / cover no-repeat;
+      }
+
+      /* Blue Glow */
+
+      #home::before {
+        content: "";
+
+        position: absolute;
+
+        width: 550px;
+        height: 550px;
+
+        left: -150px;
+        top: 20%;
+
+        border-radius: 50%;
+
+        background: rgba(0, 174, 255, 0.15);
+
+        filter: blur(100px);
+
+        animation: glow 5s infinite alternate;
+      }
+
+      /* Home Content */
+
+      .home-content {
+        position: relative;
+
+        z-index: 2;
+
+        width: 100%;
+
+        max-width: 1200px;
+
+        margin: auto;
+
+        padding: 100px 7% 50px;
+
+        text-align: left;
+
+        animation: fadeLeft 1.5s ease;
+      }
+
+      .home-content small {
+        display: block;
+
+        color: #00aeff;
+
+        font-size: 15px;
+
+        letter-spacing: 4px;
+
+        margin-bottom: 20px;
+
+        animation: fadeLeft 1s ease;
+      }
+
+      .home-content h1 {
+        font-size: clamp(50px, 8vw, 95px);
+
+        line-height: 1;
+
+        margin-bottom: 20px;
+
+        max-width: 800px;
+
+        background: linear-gradient(90deg, #ffffff, #00aeff, #ffffff);
+
+        background-size: 200%;
+
+        -webkit-background-clip: text;
+
+        color: transparent;
+
+        animation:
+          gradientText 4s infinite linear,
+          titleFloat 4s ease-in-out infinite;
+      }
+
+      .home-content h2 {
+        font-size: clamp(20px, 4vw, 32px);
+
+        color: #d5d5d5;
+
+        margin-bottom: 25px;
+
+        font-weight: 500;
+      }
+
+      .home-content p {
+        color: #aaa;
+
+        max-width: 650px;
+
+        margin: 0;
+
+        line-height: 1.8;
+
+        font-size: 17px;
+      }
+
+      /* Buttons */
+
+      .home-buttons {
+        margin-top: 35px;
+
+        display: flex;
+
+        justify-content: flex-start;
+
+        gap: 15px;
+
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        text-decoration: none;
+
+        padding: 14px 28px;
+
+        border-radius: 30px;
+
+        font-weight: bold;
+
+        transition: 0.4s;
+
+        border: 1px solid #00aeff;
+      }
+
+      .btn-primary {
+        background: #00aeff;
+
+        color: #06101c;
+
+        box-shadow: 0 0 30px rgba(0, 174, 255, 0.3);
+      }
+
+      .btn-secondary {
+        color: white;
+
+        background: transparent;
+      }
+
+      .btn:hover {
+        transform: translateY(-6px) scale(1.04);
+
+        box-shadow: 0 10px 30px rgba(0, 174, 255, 0.3);
+      }
+
+      /* =========================
+           SECTIONS
+        ========================== */
+
+      section:not(#home) {
+        min-height: 100vh;
+
+        padding: 120px 8%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        background: #080d18;
+
+        position: relative;
+      }
+
+      /* Section Title */
+
+      .section-title {
+        text-align: center;
+
+        margin-bottom: 60px;
+      }
+
+      .section-title span {
+        color: #00aeff;
+
+        font-size: 14px;
+
+        letter-spacing: 4px;
+      }
+
+      .section-title h2 {
+        font-size: clamp(35px, 5vw, 55px);
+
+        margin-top: 10px;
+      }
+
+      .section-title h2::after {
+        content: "";
+
+        display: block;
+
+        width: 60px;
+        height: 3px;
+
+        background: #00aeff;
+
+        margin: 15px auto 0;
+
+        border-radius: 10px;
+
+        box-shadow: 0 0 15px #00aeff;
+      }
+
+      /* =========================
+           ABOUT
+        ========================== */
+
+      .about-container {
+        max-width: 1000px;
+
+        width: 100%;
+
+        margin: auto;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 30px;
+      }
+
+      .about-card {
+        padding: 35px;
+
+        background: rgba(255, 255, 255, 0.03);
+
+        border: 1px solid rgba(0, 174, 255, 0.15);
+
+        border-radius: 25px;
+
+        transition: 0.5s;
+
+        opacity: 0;
+
+        transform: translateY(50px);
+      }
+
+      .about-card.show,
+      .about-card.active {
+        opacity: 1;
+
+        transform: translateY(0);
+      }
+
+      .about-card:hover {
+        transform: translateY(-10px);
+
+        border-color: #00aeff;
+
+        box-shadow: 0 20px 50px rgba(0, 174, 255, 0.12);
+      }
+
+      .about-card h3 {
+        color: #00aeff;
+
+        margin-bottom: 15px;
+
+        font-size: 24px;
+      }
+
+      .about-card p {
+        color: #aaa;
+
+        line-height: 1.8;
+      }
+
+      /* =========================
+           PROJECTS
+        ========================== */
+
+      .projects-container {
+        max-width: 1100px;
+
+        width: 100%;
+
+        margin: auto;
+
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 25px;
+      }
+
+      .project {
+        overflow: hidden;
+
+        background: #0d1422;
+
+        border-radius: 20px;
+
+        border: 1px solid rgba(0, 174, 255, 0.15);
+
+        transition: 0.5s;
+
+        opacity: 0;
+
+        transform: translateY(60px) scale(0.95);
+      }
+
+      .project.show,
+      .project.active {
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+      }
+
+      .project:hover {
+        transform: translateY(-12px) rotateX(3deg) rotateY(-3deg);
+
+        border-color: #00aeff;
+
+        box-shadow: 0 20px 50px rgba(0, 174, 255, 0.15);
+      }
+
+      .project-img {
+        height: 220px;
+
+        overflow: hidden;
+      }
+
+      .project-img img {
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: cover;
+
+        transition: 0.7s;
+      }
+
+      .project:hover img {
+        transform: scale(1.15) rotate(2deg);
+      }
+
+      .project-info {
+        padding: 25px;
+      }
+
+      .project-info h3 {
+        margin-bottom: 10px;
+
+        font-size: 22px;
+      }
+
+      .project-info p {
+        color: #999;
+
+        line-height: 1.6;
+      }
+
+      /* =========================
+           CONTACT
+        ========================== */
+
+      .contact-box {
+        max-width: 800px;
+
+        margin: auto;
+
+        text-align: center;
+
+        padding: 60px 30px;
+
+        border-radius: 30px;
+
+        background: linear-gradient(
+          135deg,
+          rgba(0, 174, 255, 0.1),
+          rgba(255, 255, 255, 0.02)
+        );
+
+        border: 1px solid rgba(0, 174, 255, 0.2);
+
+        animation: contactFloat 5s infinite ease-in-out;
+      }
+
+      .contact-box h2 {
+        font-size: 40px;
+
+        margin-bottom: 20px;
+      }
+
+      .contact-box p {
+        color: #aaa;
+
+        line-height: 1.8;
+
+        margin-bottom: 30px;
+      }
+
+      /* =========================
+           FOOTER
+        ========================== */
+
+      footer {
+        padding: 30px;
+
+        text-align: center;
+
+        background: #050912;
+
+        color: #666;
+
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      footer span {
+        color: #00aeff;
+      }
+
+      /* =========================
+           REVEAL
+        ========================== */
+
+      .reveal {
+        opacity: 0;
+
+        transform: translateY(60px);
+
+        transition:
+          opacity 1s ease,
+          transform 1s ease;
+      }
+
+      .reveal.active {
+        opacity: 1;
+
+        transform: translateY(0);
+      }
+
+      /* =========================
+           PARTICLES
+        ========================== */
+
+      .particle {
+        position: absolute;
+
+        width: 5px;
+        height: 5px;
+
+        background: #00aeff;
+
+        border-radius: 50%;
+
+        opacity: 0.5;
+
+        animation: particleMove 8s infinite linear;
+      }
+
+      .p1 {
+        left: 10%;
+        top: 30%;
+      }
+
+      .p2 {
+        left: 80%;
+        top: 20%;
+
+        animation-delay: 2s;
+      }
+
+      .p3 {
+        left: 65%;
+        top: 70%;
+
+        animation-delay: 4s;
+      }
+
+      .p4 {
+        left: 20%;
+        top: 75%;
+
+        animation-delay: 1s;
+      }
+
+      /* =========================
+           ANIMATIONS
+        ========================== */
+
+      @keyframes navbarDown {
+        from {
+          opacity: 0;
+
+          transform: translate(-50%, -50px);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: translate(-50%, 0);
+        }
+      }
+
+      @keyframes fadeLeft {
+        from {
+          opacity: 0;
+
+          transform: translateX(-80px);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes glow {
+        from {
+          transform: scale(0.8);
+
+          opacity: 0.4;
+        }
+
+        to {
+          transform: scale(1.3);
+
+          opacity: 0.8;
+        }
+      }
+
+      @keyframes gradientText {
+        0% {
+          background-position: 0%;
+        }
+
+        100% {
+          background-position: 200%;
+        }
+      }
+
+      @keyframes titleFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes contactFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      @keyframes particleMove {
+        0% {
+          transform: translateY(0) scale(1);
+        }
+
+        50% {
+          transform: translateY(-100px) scale(1.5);
+        }
+
+        100% {
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      /* =========================
+           MOBILE
+        ========================== */
+
+      @media (max-width: 800px) {
+        .navbar {
+          width: 95%;
+
+          padding: 12px 15px;
+        }
+
+        .logo {
+          font-size: 17px;
+        }
+
+        .nav-links {
+          gap: 0;
+        }
+
+        .nav-links a {
+          padding: 9px 8px;
+
+          font-size: 11px;
+        }
+
+        .home-content {
+          padding: 120px 7% 50px;
+
+          text-align: left;
+        }
+
+        .home-content h1 {
+          font-size: clamp(45px, 14vw, 75px);
+        }
+
+        .home-content h2 {
+          font-size: 22px;
+        }
+
+        .home-content p {
+          font-size: 15px;
+        }
+
+        .about-container {
+          grid-template-columns: 1fr;
+        }
+
+        .projects-container {
+          grid-template-columns: 1fr;
+        }
+
+        section:not(#home) {
+          padding: 110px 5% 80px;
+        }
+      }
+
+      @media (max-width: 450px) {
+        .logo {
+          display: none;
+        }
+
+        .navbar {
+          justify-content: center;
+        }
+
+        .nav-links a {
+          padding: 8px 7px;
+
+          font-size: 10px;
+        }
+
+        .home-buttons {
+          flex-direction: column;
+
+          align-items: flex-start;
+        }
+
+        .btn {
+          width: auto;
+
+          min-width: 150px;
+
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+      <div class="logo">ENG.EMAD HAMDY<span></span></div>
+
+      <ul class="nav-links">
+        <li>
+          <a href="#home" class="active"> Home </a>
+        </li>
+
+        <li>
+          <a href="#about"> About </a>
+        </li>
+
+        <li>
+          <a href="#projects"> Projects </a>
+        </li>
+
+        <li>
+          <a href="#contact"> Contact </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
+    <section id="home">
+      <div class="particle p1"></div>
+      <div class="particle p2"></div>
+      <div class="particle p3"></div>
+      <div class="particle p4"></div>
+
+      <div class="home-content">
+        <small> WELCOME TO MY PORTFOLIO </small>
+
+        <h1>EMAD HAMDY</h1>
+
+        <h2>Front-End Developer & Web Designer</h2>
+
+        <p>
+          I create modern, responsive and interactive websites with clean
+          design, powerful animations and a great user experience.
+        </p>
+
+        <div class="home-buttons">
+          <a href="#projects" class="btn btn-primary"> View Projects </a>
+
+          <a href="#contact" class="btn btn-secondary"> Contact Me </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about">
+      <div class="section-title reveal">
+        <span> WHO I AM </span>
+
+        <h2>About Me</h2>
+      </div>
+
+      <div class="about-container">
+        <div class="about-card">
+          <h3>Front-End Developer</h3>
+
+          <p>
+            I specialize in building modern websites using HTML, CSS and
+            JavaScript with a strong focus on performance, responsiveness and
+            user experience.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h3>Creative Designer</h3>
+
+          <p>
+            I love transforming ideas into clean, attractive and interactive
+            digital experiences that work perfectly across different devices.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects">
+      <div class="section-title reveal">
+        <span> MY WORK </span>
+
+        <h2>Projects</h2>
+      </div>
+
+      <div class="projects-container">
+        <div class="project">
+          <div class="project-img">
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000"
+              alt="Project"
+            />
+          </div>
+
+          <div class="project-info">
+            <h3>Modern Website</h3>
+
+            <p>
+              A modern responsive website with clean UI and smooth animations.
+            </p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-img">
+            <img
+              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000"
+              alt="Project"
+            />
+          </div>
+
+          <div class="project-info">
+            <h3>Developer Portfolio</h3>
+
+            <p>
+              A professional portfolio designed for developers and designers.
+            </p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-img">
+            <img
+              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1000"
+              alt="Project"
+            />
+          </div>
+
+          <div class="project-info">
+            <h3>Web Application</h3>
+
+            <p>
+              Interactive web application built with modern front-end
+              technologies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact">
+      <div class="section-title reveal">
+        <span> GET IN TOUCH </span>
+
+        <h2>Contact Me</h2>
+      </div>
+
+      <div class="contact-box reveal">
+        <h2>Let's Build Something Amazing</h2>
+
+        <p>
+          Have an idea or a project? Let's turn it into a modern digital
+          experience.
+        </p>
+
+        <a href="mailto:emadhamdy0a@email.com" class="btn btn-primary">
+          Send Message
+        </a>
+      </div>
+    </section>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+      © 2026
+      <span> Emad Hamdy </span>
+
+      — All Rights Reserved.
+    </footer>
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+      /* =========================
+           ACTIVE NAVBAR
+        ========================== */
+
+      const sections = document.querySelectorAll("section");
+
+      const navLinks = document.querySelectorAll(".nav-links a");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 150;
+
+          const sectionHeight = section.offsetHeight;
+
+          if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+          }
+        });
+      });
+
+      /* =========================
+           SCROLL REVEAL
+        ========================== */
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
+          });
+        },
+        {
+          threshold: 0.15,
+        },
+      );
+
+      document
+        .querySelectorAll(".reveal, .about-card, .project")
+        .forEach((element) => {
+          observer.observe(element);
+        });
+
+      /* =========================
+           PROJECT STAGGER
+        ========================== */
+
+      const projects = document.querySelectorAll(".project");
+
+      projects.forEach((project, index) => {
+        project.style.transitionDelay = `${index * 0.15}s`;
+      });
+
+      /* =========================
+           ABOUT STAGGER
+        ========================== */
+
+      const cards = document.querySelectorAll(".about-card");
+
+      cards.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.2}s`;
+      });
+
+      /* =========================
+           SMOOTH NAVIGATION
+        ========================== */
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const target = document.querySelector(this.getAttribute("href"));
+
+          target.scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
